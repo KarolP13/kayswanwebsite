@@ -41,9 +41,6 @@ export function Footer() {
 
         {/* Navigation */}
         <div className="flex items-center justify-center gap-8 mt-8 text-sm text-foreground-muted">
-          <Link href="/portfolio" className="hover:text-foreground transition-colors">
-            Home
-          </Link>
           <Link href="/services" className="hover:text-foreground transition-colors">
             Services
           </Link>
