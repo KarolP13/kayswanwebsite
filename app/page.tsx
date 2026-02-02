@@ -119,29 +119,26 @@ export default function HomePage() {
       {/* Stats - Minimal Strip (Moved below services) */}
       <section className="border-y border-white/5 bg-white/[0.02]">
         <div className="max-w-7xl mx-auto px-6 py-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            {[
-              { label: "Impressions", value: "18M+" },
-              { label: "Engagements", value: "1M+" },
-              { label: "Campaigns", value: "50+" },
-              { label: "Artists", value: "20+" }
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-              >
-                <div className="text-4xl md:text-5xl font-serif font-bold text-white mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-xs font-mono uppercase tracking-widest text-foreground-muted">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          {[
+            { label: "Impressions Delivered", value: "Millions" },
+            { label: "Viral Moments", value: "Countless" },
+            { label: "Culture Impact", value: "Global" }
+          ].map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+            >
+              <div className="text-4xl md:text-5xl font-serif font-bold text-white mb-2">
+                {stat.value}
+              </div>
+              <div className="text-xs font-mono uppercase tracking-widest text-foreground-muted">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -167,7 +164,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
     </>
   );
 }
