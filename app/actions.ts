@@ -4,23 +4,6 @@ import { Resend } from "resend";
 
 // Initialize Resend with API Key from environment variables
 // If no key is provided, it will fail gracefully or log an error.
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-interface ContactFormData {
-    name: string;
-    email: string;
-    company?: string;
-    campaignType?: string;
-    budget?: string;
-    message: string;
-}
-
-interface ActionState {
-    success: boolean;
-    message?: string;
-    error?: string;
-}
-
 export async function sendEmail(formData: ContactFormData): Promise<ActionState> {
     const apiKey = process.env.RESEND_API_KEY;
 
@@ -28,9 +11,11 @@ export async function sendEmail(formData: ContactFormData): Promise<ActionState>
         console.error("Missing RESEND_API_KEY environment variable.");
         return {
             success: false,
-            error: "Server configuration error. Please contact us via Twitter/X.",
+            error: "Server configuration error: Missing API Key.",
         };
     }
+
+    const resend = new Resend(apiKey);
 
     try {
         const { name, email, company, campaignType, budget, message } = formData;
