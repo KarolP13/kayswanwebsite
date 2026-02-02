@@ -52,7 +52,7 @@ export default function ServicesPage() {
             <span className="text-sm font-medium text-accent uppercase tracking-wider">
               What We Do
             </span>
-            <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-display font-bold">
+            <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-serif font-bold">
               Our Services
             </h1>
             <p className="mt-6 text-lg text-foreground-muted max-w-2xl mx-auto">
@@ -78,7 +78,7 @@ export default function ServicesPage() {
             <span className="text-sm font-medium text-accent uppercase tracking-wider">
               How We Work
             </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-display font-bold">
+            <h2 className="mt-4 text-3xl md:text-4xl font-serif font-bold">
               Our Process
             </h2>
           </motion.div>
@@ -93,10 +93,10 @@ export default function ServicesPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
               >
-                <span className="text-6xl font-display font-bold text-accent/20">
+                <span className="text-6xl font-serif font-bold text-accent/20">
                   {step.number}
                 </span>
-                <h3 className="mt-4 text-xl font-display font-bold text-foreground">
+                <h3 className="mt-4 text-xl font-serif font-bold text-foreground">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-foreground-muted">
@@ -121,7 +121,7 @@ export default function ServicesPage() {
               <span className="text-sm font-medium text-accent uppercase tracking-wider">
                 Why Kayswan
               </span>
-              <h2 className="mt-4 text-3xl md:text-4xl font-display font-bold">
+              <h2 className="mt-4 text-3xl md:text-4xl font-serif font-bold">
                 Built for the Music Industry
               </h2>
               <p className="mt-6 text-foreground-muted leading-relaxed">
@@ -139,7 +139,7 @@ export default function ServicesPage() {
               transition={{ duration: 0.5 }}
               className="bg-card border border-border rounded-2xl p-8"
             >
-              <h3 className="text-xl font-display font-bold mb-6">
+              <h3 className="text-xl font-serif font-bold mb-6">
                 What You Get
               </h3>
               <ul className="space-y-4">
@@ -158,7 +158,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <CTA 
+      <CTA
         title="Let's discuss your campaign"
         description="Tell us about your project and we'll craft a strategy to meet your goals."
         buttonText="Submit a Brief"

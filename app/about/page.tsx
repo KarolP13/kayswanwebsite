@@ -69,7 +69,7 @@ export default function AboutPage() {
             <span className="text-sm font-medium text-accent uppercase tracking-wider">
               Who We Are
             </span>
-            <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-display font-bold">
+            <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-serif font-bold">
               Built in the Culture
             </h1>
             <p className="mt-6 text-lg text-foreground-muted max-w-2xl mx-auto">
@@ -117,8 +117,8 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-display font-bold mb-8 text-center">Our Story</h2>
-            
+            <h2 className="text-3xl font-serif font-bold mb-8 text-center">Our Story</h2>
+
             <div className="space-y-6 text-lg text-foreground-muted leading-relaxed">
               <p>
                 We didn&apos;t start as a marketing agency—we started as influencers. When creators began approaching us to promote their projects through our platforms, we discovered we had a unique advantage: we understood the influencer landscape from the inside out.
@@ -150,7 +150,7 @@ export default function AboutPage() {
             <span className="text-sm font-medium text-accent uppercase tracking-wider">
               Our Network
             </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-display font-bold">
+            <h2 className="mt-4 text-3xl md:text-4xl font-serif font-bold">
               Connected to the Culture
             </h2>
             <p className="mt-4 text-foreground-muted max-w-2xl mx-auto">
@@ -174,7 +174,7 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-white/10">
                   <item.icon className="w-6 h-6 text-foreground-muted transition-colors duration-300 group-hover:text-foreground" />
                 </div>
-                <h3 className="text-xl font-display font-bold mb-2">
+                <h3 className="text-xl font-serif font-bold mb-2">
                   {item.title}
                 </h3>
                 <p className="text-foreground-muted">
@@ -187,7 +187,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <CTA 
+      <CTA
         title="Let's build something together"
         description="Ready to work with an agency that understands your culture and your goals?"
       />

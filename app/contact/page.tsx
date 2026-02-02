@@ -38,9 +38,9 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState("loading");
-    
+
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+
     setFormState("success");
     setFormData({
       name: "",
@@ -75,7 +75,7 @@ export default function ContactPage() {
             <span className="text-sm font-medium text-accent uppercase tracking-wider">
               Start a Project
             </span>
-            <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-display font-bold">
+            <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-serif font-bold">
               Get in Touch
             </h1>
             <p className="mt-6 text-lg text-foreground-muted max-w-2xl mx-auto">
@@ -105,7 +105,7 @@ export default function ContactPage() {
                   <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-6">
                     <CheckCircle className="w-8 h-8 text-green-500" />
                   </div>
-                  <h2 className="text-2xl font-display font-bold mb-4">
+                  <h2 className="text-2xl font-serif font-bold mb-4">
                     Message Sent
                   </h2>
                   <p className="text-foreground-muted mb-8">
@@ -252,7 +252,7 @@ export default function ContactPage() {
               className="lg:col-span-2"
             >
               <div className="bg-card border border-white/5 rounded-2xl p-8 sticky top-32">
-                <h2 className="text-xl font-display font-bold mb-6">
+                <h2 className="text-xl font-serif font-bold mb-6">
                   Other Ways to Reach Us
                 </h2>
 

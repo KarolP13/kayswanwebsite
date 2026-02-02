@@ -48,11 +48,11 @@ export function Services({ showAll = false, showLink = true, showHeader = true }
             <span className="text-sm font-medium text-accent uppercase tracking-wider">
               What We Do
             </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-display font-bold">
+            <h2 className="mt-4 text-3xl md:text-4xl font-serif font-bold">
               Our Services
             </h2>
             <p className="mt-4 text-foreground-muted max-w-2xl mx-auto">
-              Strategic Twitter/X marketing solutions tailored for the music industry. 
+              Strategic Twitter/X marketing solutions tailored for the music industry.
               From emerging artists to established labels.
             </p>
           </motion.div>
