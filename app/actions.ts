@@ -58,7 +58,6 @@ export async function sendEmail(formData: ContactFormData): Promise<ActionState>
         }
 
         return { success: true, message: "Message sent successfully!" };
-    } catch (error) {
     } catch (error: any) {
         console.error("Unexpected error sending email:", error);
         // Ensure error is a string
