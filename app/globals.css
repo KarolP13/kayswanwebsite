@@ -1,29 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors - Warm Dark Theme */
-  --color-background: #0c0c0c;
-  --color-background-secondary: #121212;
-  --color-foreground: #f0f0f0;
-  --color-foreground-muted: #a0a0a0;
-  
-  /* Premium Warm Accents */
-  --color-accent: #d4c5b0;
-  --color-accent-dim: rgba(212, 197, 176, 0.1);
-  --color-accent-glow: rgba(212, 197, 176, 0.4);
-  
+  /* Colors - Obsidian & Silver Theme */
+  --color-background: #000000;
+  --color-background-secondary: #050505;
+  --color-foreground: #ffffff;
+  --color-foreground-muted: #a3a3a3;
+  /* Neutral gray, no warmth */
+
+  /* Sleek Accents */
+  --color-accent: #e0e0e0;
+  /* Silver / Platinum */
+  --color-accent-dim: rgba(224, 224, 224, 0.1);
+  --color-accent-glow: rgba(224, 224, 224, 0.2);
+
   /* Borders & Glass */
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.15);
-  
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-hover: rgba(255, 255, 255, 0.25);
+
   /* Cards */
-  --color-card: rgba(255, 255, 255, 0.03);
-  --color-card-hover: rgba(255, 255, 255, 0.06);
+  --color-card: #0a0a0a;
+  --color-card-hover: #121212;
 
   /* Fonts */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Fraunces", "Georgia", serif; /* New Premium Header Font */
-  --font-mono: "JetBrains Mono", "Fira Code", monospace; /* Technical feel */
+  --font-serif: "Fraunces", "Georgia", serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
 }
 
 @layer base {
@@ -37,11 +39,17 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    /* Subtler, cleaner grain - or remove entirely if "sleek" means perfectly smooth */
+    background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #000000 70%);
     background-attachment: fixed;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-serif font-semibold tracking-tight;
   }
 
@@ -59,57 +67,52 @@
 
   /* Focus states */
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 1px solid var(--color-accent);
     outline-offset: 4px;
-    border-radius: 4px;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(to right, #ffffff, #a0a0a0);
+    background: linear-gradient(to bottom, #ffffff, #a3a3a3);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  
+
   .text-gradient-accent {
-      background: linear-gradient(to right, var(--color-accent), #fff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    background: linear-gradient(to right, #ffffff, var(--color-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .glass {
-    @apply backdrop-blur-xl border border-white/5 bg-white/[0.02];
-  }
-  
-  .glass-card {
-      @apply backdrop-blur-md border border-white/[0.06] bg-black/20 shadow-2xl;
+    @apply backdrop-blur-xl border border-white/10 bg-black/40;
   }
 
-  .noise-bg {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  .glass-card {
+    @apply backdrop-blur-md border border-white/10 bg-white/[0.03];
   }
-  
+
   /* Smooth Fade In Animation */
   .fade-in-up {
-      animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-      opacity: 0;
-      transform: translateY(20px);
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
+
   @keyframes fadeInUp {
-      to {
-          opacity: 1;
-          transform: translateY(0);
-      }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Sleek & Thin */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -117,12 +120,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: #333;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
+  background: #555;
 }
 
 ::selection {

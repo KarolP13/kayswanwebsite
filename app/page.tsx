@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { TrendingUp, Users, Megaphone, BarChart3, ArrowRight } from "lucide-react";
 import { BentoCard } from "@/components/ui/BentoCard";
 import Link from "next/link";
+import Image from "next/image";
+import { SwanBackground } from "@/components/ui/SwanBackground";
 
 const deliverables = [
   {
@@ -38,11 +40,25 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
 
-        {/* Background Glows */}
-        <div className="absolute top-0 transform -translate-x-1/2 left-1/2 w-[800px] h-[500px] bg-accent/10 rounded-[100%] blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-purple-900/10 rounded-[100%] blur-[100px] pointer-events-none" />
+        {/* Animated Background */}
+        <SwanBackground />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="mb-6 flex justify-center"
+          >
+            <Image
+              src="/logo/kayswan-logo.png"
+              alt="Kayswan Logo"
+              width={120}
+              height={120}
+              className="invert brightness-200"
+              priority
+            />
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

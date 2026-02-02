@@ -121,13 +121,13 @@ export default function AboutPage() {
 
             <div className="space-y-6 text-lg text-foreground-muted leading-relaxed">
               <p>
-                We didn&apos;t start as a marketing agency—we started as influencers. When creators began approaching us to promote their projects through our platforms, we discovered we had a unique advantage: we understood the influencer landscape from the inside out.
+                We didn&apos;t start as a marketing agency - we started as influencers. When creators began approaching us to promote their projects through our platforms, we discovered we had a unique advantage: we understood the influencer landscape from the inside out.
               </p>
               <p>
                 After running countless campaigns and learning what truly works, we realized that influencers make the best influencer marketers. So we launched Kayswan LLC, bringing together our organic presence on the platform with professional marketing expertise.
               </p>
               <p>
-                Our network includes some of the biggest pages in the scene—not as clients, but as friends and collaborators. That&apos;s the Kayswan difference.
+                Our network includes some of the biggest pages in the scene - not as clients, but as friends and collaborators. That&apos;s the Kayswan difference.
               </p>
             </div>
           </motion.div>
@@ -154,7 +154,7 @@ export default function AboutPage() {
               Connected to the Culture
             </h2>
             <p className="mt-4 text-foreground-muted max-w-2xl mx-auto">
-              We are deeply connected to the top influencers and brands in the music space on Twitter/X. Our network spans across hip-hop, R&B, and broader music culture—giving us unparalleled reach when it comes to campaign execution.
+              We are deeply connected to the top influencers and brands in the music space on Twitter/X. Our network spans across hip-hop, R&B, and broader music culture - giving us unparalleled reach when it comes to campaign execution.
             </p>
           </motion.div>
 
