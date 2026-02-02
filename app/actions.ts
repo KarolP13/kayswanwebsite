@@ -37,8 +37,8 @@ export async function sendEmail(formData: ContactFormData): Promise<ActionState>
         const { name, email, company, campaignType, budget, message } = formData;
 
         const data = await resend.emails.send({
-            from: "Kayswan Website <onboarding@resend.dev>", // Default Resend testing domain, change to verified domain in prod
-            to: ["contact@kayswan.xyz"], // Verified destination address
+            from: "Kayswan Website <onboarding@resend.dev>", // Default Resend testing domain
+            to: ["karolp4105@gmail.com"], // Must be the account email for unverified domains
             subject: `New Inquiry from ${name}`,
             replyTo: email,
             text: `
