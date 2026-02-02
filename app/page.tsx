@@ -119,26 +119,29 @@ export default function HomePage() {
       {/* Stats - Minimal Strip (Moved below services) */}
       <section className="border-y border-white/5 bg-white/[0.02]">
         <div className="max-w-7xl mx-auto px-6 py-20">
-          {[
-            { label: "Impressions Delivered", value: "Millions" },
-            { label: "Viral Moments", value: "Countless" },
-            { label: "Culture Impact", value: "Global" }
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-            >
-              <div className="text-4xl md:text-5xl font-serif font-bold text-white mb-2">
-                {stat.value}
-              </div>
-              <div className="text-xs font-mono uppercase tracking-widest text-foreground-muted">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+            {[
+              { label: "Impressions Delivered", value: "Millions" },
+              { label: "Viral Moments", value: "Countless" },
+              { label: "Culture Impact", value: "Global" }
+            ].map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="flex flex-col items-center justify-center p-4"
+              >
+                <div className="text-4xl md:text-6xl font-serif font-bold text-white mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-sm font-mono uppercase tracking-[0.2em] text-foreground-muted">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
