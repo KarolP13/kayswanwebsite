@@ -62,7 +62,9 @@ export default function ContactPage() {
       }
     } catch (error) {
       setFormState("error");
-      setErrorMessage("An unexpected error occurred.");
+      const msg = error instanceof Error ? error.message : "An unexpected error occurred.";
+      setErrorMessage(msg);
+      console.error("Client side form error:", error);
     }
   };
 

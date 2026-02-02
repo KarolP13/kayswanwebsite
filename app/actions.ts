@@ -59,8 +59,10 @@ export async function sendEmail(formData: ContactFormData): Promise<ActionState>
 
         return { success: true, message: "Message sent successfully!" };
     } catch (error) {
+    } catch (error: any) {
         console.error("Unexpected error sending email:", error);
-        const errorMessage = error instanceof Error ? error.message : "Unknown server error";
-        return { success: false, error: `Server Error: ${errorMessage}` };
+        // Ensure error is a string
+        const errorMsg = error?.message || error?.toString() || "Unknown error";
+        return { success: false, error: `Server Exception: ${errorMsg}` };
     }
 }
