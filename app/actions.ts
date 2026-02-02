@@ -4,6 +4,22 @@ import { Resend } from "resend";
 
 // Initialize Resend with API Key from environment variables
 // If no key is provided, it will fail gracefully or log an error.
+
+interface ContactFormData {
+    name: string;
+    email: string;
+    company?: string;
+    campaignType?: string;
+    budget?: string;
+    message: string;
+}
+
+interface ActionState {
+    success: boolean;
+    message?: string;
+    error?: string;
+}
+
 export async function sendEmail(formData: ContactFormData): Promise<ActionState> {
     const apiKey = process.env.RESEND_API_KEY;
 
