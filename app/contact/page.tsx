@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { Send, Twitter, Mail, CheckCircle, Loader2 } from "lucide-react";
+import { Send, Twitter, Mail, CheckCircle, Loader2, AlertCircle } from "lucide-react";
+import { sendEmail } from "@/app/actions";
 
 const campaignTypes = [
   { value: "", label: "Select campaign type" },
@@ -22,10 +23,12 @@ const budgetRanges = [
   { value: "discuss", label: "Let's Discuss" },
 ];
 
-const inputStyles = "w-full px-4 py-3 bg-card border border-white/10 rounded-lg text-foreground placeholder:text-foreground-muted/50 transition-all duration-200 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10";
+const inputStyles = "w-full px-4 py-3 bg-card border border-white/10 rounded-lg text-foreground placeholder:text-foreground-muted/50 transition-all duration-200 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,18 +41,29 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState("loading");
+    setErrorMessage("");
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const result = await sendEmail(formData);
 
-    setFormState("success");
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      campaignType: "",
-      budget: "",
-      message: "",
-    });
+      if (result.success) {
+        setFormState("success");
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          campaignType: "",
+          budget: "",
+          message: "",
+        });
+      } else {
+        setFormState("error");
+        setErrorMessage(result.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setFormState("error");
+      setErrorMessage("An unexpected error occurred.");
+    }
   };
 
   const handleChange = (
@@ -117,6 +131,13 @@ export default function ContactPage() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {formState === "error" && (
+                    <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4 flex items-center gap-3 text-red-400">
+                      <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                      <p className="text-sm">{errorMessage}</p>
+                    </div>
+                  )}
+
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -225,7 +246,7 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full"
+                    className="w-full font-bold tracking-wide"
                     disabled={formState === "loading"}
                   >
                     {formState === "loading" ? (
