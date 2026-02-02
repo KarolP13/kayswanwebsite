@@ -54,12 +54,13 @@ export async function sendEmail(formData: ContactFormData): Promise<ActionState>
 
         if (data.error) {
             console.error("Resend API Error:", data.error);
-            return { success: false, error: "Failed to send message. Please try again." };
+            return { success: false, error: data.error.message || "Failed to send message via Resend." };
         }
 
         return { success: true, message: "Message sent successfully!" };
     } catch (error) {
         console.error("Unexpected error sending email:", error);
-        return { success: false, error: "An unexpected error occurred." };
+        const errorMessage = error instanceof Error ? error.message : "Unknown server error";
+        return { success: false, error: `Server Error: ${errorMessage}` };
     }
 }
