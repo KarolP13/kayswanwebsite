@@ -55,7 +55,7 @@ export default function HomePage() {
                 src="/logo/kayswan-logo.png"
                 alt="Kayswan - Music Marketing"
                 fill
-                className="object-contain invert brightness-[100] opacity-90 drop-shadow-[0_0_35px_rgba(255,255,255,0.3)]"
+                className="object-contain invert opacity-90"
                 priority
               />
             </motion.div>

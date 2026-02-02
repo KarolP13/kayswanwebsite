@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import { ReactNode } from "react";
 
 interface FeatureItemProps {
@@ -41,10 +40,6 @@ function FeatureItem({ title, description, index }: FeatureItemProps) {
                     <p className="text-foreground-muted/60 text-lg leading-relaxed group-hover:text-foreground-muted transition-colors duration-300">
                         {description}
                     </p>
-
-                    <div className="hidden md:flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-white opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-2 group-hover:translate-x-2 group-hover:border-accent group-hover:text-accent">
-                        <ArrowUpRight className="h-6 w-6" />
-                    </div>
                 </div>
             </div>
         </motion.div>
